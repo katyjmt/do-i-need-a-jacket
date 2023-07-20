@@ -4,6 +4,7 @@ const $citySearchForm = $('#city-search-form');
 let $cityInput = $('#city-search-input'); 
 const $citySearchButton = $('#city-search-button'); // Select search button
 const $previousSearches = $('#previous-searches'); // Select container with previous search buttons
+let $previousCities = $('.previous-cities'); // Select previous search buttons
 const $currentCityName = $('#current-city-name');
 const $forecastDateEls = $('.forecast-date');
 const $currentIcon = $('#current-icon');
@@ -51,6 +52,7 @@ $citySearchButton.on("click", function(event) {
         localStorage.setItem("cities", JSON.stringify(searchedCities)); // Save newly-updated searchedCities variable to local storage
         const newButton = $('<button>').addClass('previous-cities').attr('id', userSearch).text(userSearch);
         $previousSearches.prepend(newButton);
+        $previousCities = $('.previous-cities');
         geocodeAPIURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + userSearch + '&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
         fetch(geocodeAPIURL)
         .then(res => {
@@ -87,12 +89,10 @@ $citySearchButton.on("click", function(event) {
 })
 
 // On click event handler for previous search buttons to trigger API calls
-const $previousCities = $('.previous-cities'); // Select previous search buttons
 $previousCities.on("click", function() {
     geocodeAPIURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + $previousCities.text() + '&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
         fetch(geocodeAPIURL)
         .then(res => {
-            console.log(res.json());
             return res.json();
         })
         .then(data => {
