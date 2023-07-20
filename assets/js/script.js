@@ -89,7 +89,7 @@ $citySearchButton.on("click", function(event) {
 })
 
 
-// On click event handler (delegated) for previous search buttons to trigger API calls
+// On click event handler (delegated) for previous search buttons to trigger API calls.
 $previousSearches.on("click", ".previous-cities", function() {
     let cityClicked = $(this).text().trim();
     geocodeAPIURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityClicked + '&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
