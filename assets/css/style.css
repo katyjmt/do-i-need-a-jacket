@@ -1,0 +1,55 @@
+:root {
+    --primary-colour: lightblue;
+    --border-colour: lightgray;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--primary-colour);
+}
+
+main, #forecast-cards {
+    display: flex;
+}
+
+h1, h2, h3 {
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+aside, #current-city-stats, #five-day-forecast {
+    border: 1px solid var(--border-colour);
+}
+
+#forecast-cards {
+    display: flex;
+    justify-content: left;
+}
+
+.forecast-date {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.card {
+    background-color: darkblue;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px 20px 5px 0px;
+    width: 20%;
+    box-sizing: border-box;
+}
+
+.previous-cities {
+    display: block;
+}

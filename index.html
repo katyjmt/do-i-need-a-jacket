@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/skeleton.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main>
+        <aside class="one-third column">
+            <div id="city-search">
+                <form autocomplete="on" name="city-search-form">
+                    <h2>Search for a city:</h2>
+                    <input type="text" name="city-name" id="city-search-input" autofocus>
+                    <button type="button" id="city-search-button">Search</button>
+                </form>
+            </div>
+            <div id="previous-searches"></div>
+        </aside>
+        <section class="two-thirds column">
+            <div id="current-city-stats">
+                <h2><span id="current-city-name">Test City</span><span> (</span><span class="forecast-date">DD/MM/YYYY</span><span>)</span><span class="icon"></span></h2>
+                <p>Temp: <span class="temp"></span>&#8451;</p>
+                <p>Wind: <span class="wind"></span>MPH</p>
+                <p>Humidity: <span class="humidity"></span>%</p>
+            </div>
+            <div id="five-day-forecast">
+                <h3>5-Day Forecast:</h3>
+                <div id="forecast-cards">
+                    <div class="card">
+                        <p class="forecast-date">DD/MM/YYYY</p>
+                        <span class="icon"></span>
+                        <p>Temp: <span class="temp"></span>&#8451;</p>
+                        <p>Wind: <span class="wind"></span>MPH</p>
+                        <p>Humidity: <span class="humidity"></span>%</p>
+                    </div>
+                    <div class="card">
+                        <p class="forecast-date">DD/MM/YYYY</p>
+                        <span class="icon"></span>
+                        <p>Temp: <span class="temp"></span>&#8451;</p>
+                        <p>Wind: <span class="wind"></span>MPH</p>
+                        <p>Humidity: <span class="humidity"></span>%</p>
+                    </div>
+                    <div class="card">
+                        <p class="forecast-date">DD/MM/YYYY</p>
+                        <span class="icon"></span>
+                        <p>Temp: <span class="temp"></span>&#8451;</p>
+                        <p>Wind: <span class="wind"></span>MPH</p>
+                        <p>Humidity: <span class="humidity"></span>%</p>
+                    </div>
+                    <div class="card">
+                        <p class="forecast-date">DD/MM/YYYY</p>
+                        <span class="icon"></span>
+                        <p>Temp: <span class="temp"></span>&#8451;</p>
+                        <p>Wind: <span class="wind"></span>MPH</p>
+                        <p>Humidity: <span class="humidity"></span>%</p>
+                    </div>
+                    <div class="card">
+                        <p class="forecast-date">DD/MM/YYYY</p>
+                        <span class="icon"></span>
+                        <p>Temp: <span class="temp"></span>&#8451;</p>
+                        <p>Wind: <span class="wind"></span>MPH</p>
+                        <p>Humidity: <span class="humidity"></span>%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.9/dayjs.min.js"
+        integrity="sha512-q4Xn+ZU2K+dqJPL8a3TiyGsDa31IkR/rLt/w+fy8jLrx8TdXj0dLM1Aq4aPXnOOKxHEya/bD9DePDB2DHm4jJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
