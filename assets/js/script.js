@@ -13,8 +13,8 @@ const $tempEls = $('.temp'); // Select spans containing temp data
 const $windEls = $('.wind'); // Select spans containing wind data
 const $humidityEls = $('.humidity'); // Select spans containing humidity data
 const $5DayForecastCards = $('.card'); // Select 5 day forecast cards - populate using jQuery
-let geocodeAPIURL = 'http://api.openweathermap.org/geo/1.0/direct?q=Melbourne&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
-let fiveDayForecastAPIURL = 'http://api.openweathermap.org/data/2.5/forecast?lat=-37.8142176&lon=144.9631608&units=metric&cnt=6&appid=b168a8425ac9f53cc7568f543dca6de4'
+let geocodeAPIURL = 'https://api.openweathermap.org/geo/1.0/direct?q=Melbourne&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
+let fiveDayForecastAPIURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=-37.8142176&lon=144.9631608&units=metric&cnt=6&appid=b168a8425ac9f53cc7568f543dca6de4'
 let cityName; // Variable to store the currently-searched city nane
 let cityNameState;
 let cityLat; // Variables to store current lat / long
@@ -53,7 +53,7 @@ $citySearchButton.on("click", function(event) {
         const newButton = $('<button>').addClass('previous-cities').attr('id', userSearch).text(userSearch);
         $previousSearches.prepend(newButton);
         $previousCities = $('.previous-cities');
-        geocodeAPIURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + userSearch + '&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
+        geocodeAPIURL = 'https://api.openweathermap.org/geo/1.0/direct?q=' + userSearch + '&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
         fetch(geocodeAPIURL)
         .then(res => {
             return res.json();
@@ -66,7 +66,7 @@ $citySearchButton.on("click", function(event) {
             cityLat = data[0].lat;
             cityLon = data[0].lon; 
             // Feed lat/long into 5 Day Forecast API using lat/long retrieved
-            fiveDayForecastAPIURL = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + cityLat + '&lon=' + cityLon + '&units=metric&cnt=6&appid=b168a8425ac9f53cc7568f543dca6de4';  
+            fiveDayForecastAPIURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + cityLat + '&lon=' + cityLon + '&units=metric&cnt=6&appid=b168a8425ac9f53cc7568f543dca6de4';  
             fetch(fiveDayForecastAPIURL)
             .then(res => {
                 return res.json();
