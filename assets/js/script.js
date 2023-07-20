@@ -92,7 +92,7 @@ $citySearchButton.on("click", function(event) {
 // On click event handler (delegated) for previous search buttons to trigger API calls.
 $previousSearches.on("click", ".previous-cities", function() {
     let cityClicked = $(this).text().trim();
-    geocodeAPIURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityClicked + '&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
+    geocodeAPIURL = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityClicked + '&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
         fetch(geocodeAPIURL)
         .then(res => {
             return res.json();
@@ -105,7 +105,7 @@ $previousSearches.on("click", ".previous-cities", function() {
             cityLat = data[0].lat;
             cityLon = data[0].lon; 
             // Feed lat/long into 5 Day Forecast API using lat/long retrieved
-            fiveDayForecastAPIURL = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + cityLat + '&lon=' + cityLon + '&units=metric&cnt=6&appid=b168a8425ac9f53cc7568f543dca6de4';  
+            fiveDayForecastAPIURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + cityLat + '&lon=' + cityLon + '&units=metric&cnt=6&appid=b168a8425ac9f53cc7568f543dca6de4';  
             fetch(fiveDayForecastAPIURL)
             .then(res => {
                 return res.json();
