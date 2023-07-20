@@ -52,7 +52,6 @@ $citySearchButton.on("click", function(event) {
         localStorage.setItem("cities", JSON.stringify(searchedCities)); // Save newly-updated searchedCities variable to local storage
         const newButton = $('<button>').addClass('previous-cities').attr('id', userSearch).text(userSearch);
         $previousSearches.prepend(newButton);
-        $previousCities = $('.previous-cities');
         geocodeAPIURL = 'https://api.openweathermap.org/geo/1.0/direct?q=' + userSearch + '&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
         fetch(geocodeAPIURL)
         .then(res => {
