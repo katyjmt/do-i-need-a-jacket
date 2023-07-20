@@ -52,6 +52,7 @@ $citySearchButton.on("click", function(event) {
         localStorage.setItem("cities", JSON.stringify(searchedCities)); // Save newly-updated searchedCities variable to local storage
         const newButton = $('<button>').addClass('previous-cities').attr('id', userSearch).text(userSearch);
         $previousSearches.prepend(newButton);
+        $previousCities = $('.previous-cities');
         geocodeAPIURL = 'https://api.openweathermap.org/geo/1.0/direct?q=' + userSearch + '&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
         fetch(geocodeAPIURL)
         .then(res => {
@@ -87,37 +88,39 @@ $citySearchButton.on("click", function(event) {
     $cityInput.val("");
 })
 
-// // On click event handler for previous search buttons to trigger API calls
-// $previousCities.on("click", function() {
-//     geocodeAPIURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + $previousCities.text() + '&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
-//         fetch(geocodeAPIURL)
-//         .then(res => {
-//             return res.json();
-//         })
-//         .then(data => {
-//             console.log(data);
-//             cityName = data[0].name;
-//             cityNameState = data[0].name + ', ' + data[0].state;
-//             $currentCityName.text(cityNameState);
-//             cityLat = data[0].lat;
-//             cityLon = data[0].lon; 
-//             // Feed lat/long into 5 Day Forecast API using lat/long retrieved
-//             fiveDayForecastAPIURL = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + cityLat + '&lon=' + cityLon + '&units=metric&cnt=6&appid=b168a8425ac9f53cc7568f543dca6de4';  
-//             fetch(fiveDayForecastAPIURL)
-//             .then(res => {
-//                 return res.json();
-//             })
-//             .then(data => {
-//                 weatherData = data;
-//                 console.log(weatherData);
-//                 weatherData.list.forEach(function (day, i) {
-//                     let temp = day.main.temp;
-//                     let wind = day.wind.speed;
-//                     let humidity = day.main.humidity;
-//                     $tempEls.eq(i).text(temp);
-//                     $windEls.eq(i).text(wind);
-//                     $humidityEls.eq(i).text(humidity);
-//                 });
-//             });
-//         });
-//     });
+
+// On click event handler (delegated) for previous search buttons to trigger API calls
+$previousSearches.on("click", ".previous-cities", function() {
+    let cityClicked = $(this).text().trim();
+    geocodeAPIURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityClicked + '&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
+        fetch(geocodeAPIURL)
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            console.log(data);
+            cityName = data[0].name;
+            cityNameState = data[0].name + ', ' + data[0].state;
+            $currentCityName.text(cityNameState);
+            cityLat = data[0].lat;
+            cityLon = data[0].lon; 
+            // Feed lat/long into 5 Day Forecast API using lat/long retrieved
+            fiveDayForecastAPIURL = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + cityLat + '&lon=' + cityLon + '&units=metric&cnt=6&appid=b168a8425ac9f53cc7568f543dca6de4';  
+            fetch(fiveDayForecastAPIURL)
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                weatherData = data;
+                console.log(weatherData);
+                weatherData.list.forEach(function (day, i) {
+                    let temp = day.main.temp;
+                    let wind = day.wind.speed;
+                    let humidity = day.main.humidity;
+                    $tempEls.eq(i).text(temp);
+                    $windEls.eq(i).text(wind);
+                    $humidityEls.eq(i).text(humidity);
+                });
+            });
+        });
+    });
