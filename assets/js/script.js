@@ -92,6 +92,7 @@ $previousCities.on("click", function() {
     geocodeAPIURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + $previousCities.text() + '&limit=1&appid=b168a8425ac9f53cc7568f543dca6de4';
         fetch(geocodeAPIURL)
         .then(res => {
+            console.log(res.json());
             return res.json();
         })
         .then(data => {

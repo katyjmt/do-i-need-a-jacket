@@ -21,14 +21,16 @@ h1, h2, h3 {
 
 h2 {
     font-size: 3rem;
+    font-weight: 500;
 }
 
 h3 {
     font-size: 2.5rem;
 }
 
-aside, #current-city-stats, #five-day-forecast {
-    border: 1px solid var(--border-colour);
+header {
+    display: flex;
+    align-items: center;
 }
 
 #forecast-cards {
@@ -41,15 +43,42 @@ aside, #current-city-stats, #five-day-forecast {
     font-size: 16px;
 }
 
+#today-date {
+    font-size: 3rem;
+    font-weight: 100;
+}
+
 .card {
-    background-color: darkblue;
+    background-color: rgb(30, 30, 61);
     color: white;
     padding: 5px 10px;
-    margin: 5px 20px 5px 0px;
+    margin: 5px 10px 5px 0px;
     width: 20%;
     box-sizing: border-box;
 }
 
 .previous-cities {
     display: block;
+}
+
+#city-search-input, #city-search-button, .previous-cities {
+    width: 100%;
+}
+
+#city-search-button {
+    background-color: rgb(83, 83, 179);
+    border: none;
+    color: white;
+}
+
+#city-search {
+    border-bottom: 1px solid grey;
+}
+
+#previous-searches {
+    margin-top: 40px;
+}
+
+main {
+    padding-top: 30px;
 }

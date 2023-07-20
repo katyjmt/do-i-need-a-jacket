@@ -1,6 +1,6 @@
 # Weather Dashboard
 
-![Screenshot of application](./assets/screenshot.png)
+![Screenshot of application](./assets/images/weather-dashboard.png)
 
 ## Table of Contents
 
@@ -12,7 +12,7 @@
 
 ## Description
 
-A weather app to get the current weather and five-day forecast for your city. Data includes temperature, wind speed and humidity. Previous searches are saved to your local storage as you go!
+A weather app to get the current weather and a five-day forecast for your city. Data includes temperature, wind speed and humidity. Previous searches are saved to your local storage as you go.
 
 ## Deployed Application
 
